@@ -7,10 +7,10 @@
 -Xmx{JVM_XMX}
 
 # ADITO Home location
--Dadito.home=/opt/ADITO4
+-Dadito.home=/opt/ADITO
 
 # ADITO Data location
-#-Dadito.data=
+-Dadito.data=/opt/ADITOData
 
 # Configfile
 -Dadito.serverconfig=$ADITOHOME/config/serverconfig.xml
