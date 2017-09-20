@@ -27,7 +27,7 @@ RUN curl -o /tmp/adito.sh "http://static.adito.de/common/install/ADITO5_5.0.90-R
  && rm -rf /tmp/* /opt/ADITO/bin/StartDerby* /opt/ADITO/bin/service /opt/ADITO/bin/ADITO5server.vmoptions /opt/ADITO/uninstall \
  && mv /opt/ADITO/bin/ADITO*server /opt/ADITO/bin/ADITOserver
 
-EXPOSE 7934 7779 7778 7733 80
+EXPOSE 7934 7779 7778 7733 161/udp 80
 
 WORKDIR /opt/ADITO
 
