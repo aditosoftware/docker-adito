@@ -21,13 +21,14 @@ ENV INSTALL4J_JAVA_HOME='/opt/jre' \
 
 ADD ./config /a/config
 
-RUN curl -o /tmp/adito.sh "http://static.adito.de/common/install/ADITO5_5.0.90-RC7_unix.sh" \
- && chmod u+x /tmp/adito.sh \
- && /tmp/adito.sh -q -varfile /a/config/response.varfile \
- && rm -rf /tmp/* /opt/ADITO/bin/StartDerby* /opt/ADITO/bin/service /opt/ADITO/bin/ADITO5server.vmoptions /opt/ADITO/uninstall \
+RUN curl -o /tmp/adito.tar "http://static.adito.de/common/install/ADITO5/ADITO_5.0.100-RC2_unix.tar" \
+ && tar -xf /tmp/adito.tar -C /tmp/ \
+ && chmod +x /tmp/install/ADITO_unix.sh \
+ && /tmp/install/ADITO_unix.sh -q -varfile /a/config/response.varfile \
+ && rm -rf /tmp/* /opt/ADITO/bin/ADITO5server.vmoptions \
  && mv /opt/ADITO/bin/ADITO*server /opt/ADITO/bin/ADITOserver
 
-EXPOSE 7934 7779 7778 7733 161/udp 80
+EXPOSE 8090 7934 7779 7778 7733 161/udp 80
 
 WORKDIR /opt/ADITO
 

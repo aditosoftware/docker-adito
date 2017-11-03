@@ -1,15 +1,20 @@
-# install4j response file for ADITO
+# install4j response file for ADITO 5.0
 adito.installer.configureWebstart$Boolean=false
 adito.installer.installservice$Boolean=false
+adito.installer.properties.servicename=ADITO5Server
 sys.adminRights$Boolean=true
+sys.component.168$Boolean=false
+sys.component.169$Boolean=true
+sys.component.170$Boolean=false
+sys.component.171$Boolean=false
 sys.component.3368$Boolean=false
-sys.component.Client$Boolean=false
-sys.component.ClientWebstart$Boolean=true
-sys.component.Designer$Boolean=false
-sys.component.Documentation$Boolean=false
-sys.component.Manager$Boolean=false
-sys.component.ProjektSystem$Boolean=false
-sys.component.Server$Boolean=true
+sys.component.348$Boolean=true
+sys.component.3560$Boolean=false
+sys.component.4197$Boolean=false
+sys.component.4435$Boolean=false
+sys.component.4436$Boolean=true
+sys.component.4437$Boolean=false
+sys.component.4438$Boolean=true
 sys.installationDir=/opt/ADITO
 sys.languageId=en
 sys.programGroupDisabled$Boolean=true
