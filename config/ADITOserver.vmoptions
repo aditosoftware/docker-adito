@@ -18,4 +18,6 @@
 # Ports
 -Dadito.server.port=7779
 -Dadito.server.managerport=7778
--Dadito.server.webserverport=80
+
+# Garbage Collection
+-XX:+UseG1GC
