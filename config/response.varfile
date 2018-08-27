@@ -1,4 +1,4 @@
-# install4j response file for ADITO 5.0
+# install4j response file for ADITO
 adito.installer.configureWebstart$Boolean=false
 adito.installer.installservice$Boolean=false
 adito.installer.properties.servicename=ADITO5Server

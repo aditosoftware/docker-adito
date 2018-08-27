@@ -1,8 +1,7 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu/ xenial multiverse" >> /etc/apt/sources.list \
- && apt-get update -qq \
- && apt-get install -qqy curl fontconfig wget cabextract xfonts-utils\
+RUN apt update -qq \
+ && apt install -qqy curl vim fontconfig wget cabextract xfonts-utils\
  && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula boolean true" \
   | debconf-set-selections \
  && curl -O "http://ftp.de.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb" \
@@ -10,8 +9,8 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu/ xenial multiverse" >> /etc/apt/s
  && rm -rf /var/lib/apt/lists/* ttf-mscorefonts-installer_3.6_all.deb
 
 RUN curl -sLH "Cookie: oraclelicense=accept-securebackup-cookie" \
-    http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jre-8u181-linux-x64.tar.gz \
-    | tar -xzf - -C /opt \
+    "http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jre-8u181-linux-x64.tar.gz" \
+  | tar -xzf - -C /opt \
  && mv /opt/jre1.8* /opt/jre
 
 ENV INSTALL4J_JAVA_HOME='/opt/jre' \
@@ -21,11 +20,11 @@ ENV INSTALL4J_JAVA_HOME='/opt/jre' \
 
 ADD ./config /a/config
 
-RUN curl -o /tmp/adito.tar "http://static.adito.de/common/install/ADITO5/ADITO_5.0.200_unix.tar" \
+RUN curl -so /tmp/adito.tar "http://static.adito.de/common/install/ADITO5/ADITO_5.0.200_unix.tar" \
  && tar -xf /tmp/adito.tar -C /tmp/ \
  && chmod +x /tmp/install/ADITO_unix.sh \
  && /tmp/install/ADITO_unix.sh -q -varfile /a/config/response.varfile \
- && rm -rf /tmp/* /opt/ADITO/bin/ADITO5server.vmoptions \
+ && rm -rf /tmp/* /opt/ADITO/bin/ADITO*server.vmoptions \
  && mv /opt/ADITO/bin/ADITO*server /opt/ADITO/bin/ADITOserver
 
 EXPOSE 8090 7934 7779 7778 7733 161/udp 80
