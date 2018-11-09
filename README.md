@@ -1,6 +1,3 @@
-# docker ADITO
-
-
 ## Warning: A valid license for ADITO is necessary to run this image.
 
 
@@ -16,38 +13,9 @@ ADITO is a powerful CRM software. It´s developed by [ADITO Software GmbH](https
 All possible environment variables with their default values are listed below.
 
 
-### `JVM_XMX=1024M`
+### `JVM_XMX=1G`
 
-Maximum memory allocation pool for Java (for example 2G = 2 gigabyte).
-
-
-### `WEBSTART_URL=`
-
-Only necessary when you use https and/or another port than 80.
-
-example: WEBSTART_URL=https://domain.com:8443
-
-
-### `WEBSTART_HOST=`
-
-Domain name or IP of the docker host used for adito webstart.
-
-
-### `ADITO_PORT=7779`
-
-This is the port where you can access the ADITO server.
-
-
-### `ADITO_CONNECTION_TYPE=NETTY`
-
-Normally there is no need to change this connection type between the ADITO client and ADITO server.
-
-Possible values are:
-- NETTY
-- CLASSIC
-- NIO
-- STATELESS
-- HTTP
+Maximum memory allocation pool for Java (for example 2G = 2 gigabyte; 1024M = 1024 megabyte).
 
 
 ### `SRVCONF_DATABASETYP=`
@@ -55,7 +23,6 @@ Possible values are:
 Database type of the System Database
 
 Possible values are:
-- 3 (mySQL)
 - 7 (Derby)
 - 8 (PostgreSQL)
 - 12 (MariaDB)
@@ -94,7 +61,4 @@ System ID configured in the ADITO designer.
 
 ## Run ADITO
 
-```console
-$ docker run -d --name some-mariadb -v /my/own/datadir:/var/lib/mysql -e MYSQL_DATABASE=aditodatabase -e MYSQL_USER=adito -e MYSQL_PASSWORD=secret -e MYSQL_ROOT_PASSWORD=secret2 mariadb:10.1
-$ docker run -d --name some-adito -p 7779:7779 -p 8080:80 -e WEBSTART_URL="http://myserver:8080" -e WEBSTART_HOST=myserver -e SRVCONF_DATABASE=aditodatabase -e SRVCONF_DATABASETYP=12 -e SRVCONF_HOST=mariadb -e SRVCONF_PORT=3306 -e SRVCONF_USER=adito -e SRVCONF_PASSWORD=secret -e SRVCONF_SERVER_ID=default -e JVM_XMX=4G --link some-mariadb:mariadb adito/adito
-```
+We provide a [docker-compose.yml](https://raw.githubusercontent.com/aditosoftware/docker-adito/master/docker-compose.yml)
