@@ -10,7 +10,7 @@ RUN apt update -qq \
 
 RUN curl -s "http://static.adito.de/jre/jdk-10.0.2_linux-x64_bin.tar.gz" \
   | tar -xzf - -C /opt \
- && mv /opt/jre1.8* /opt/jre
+ && mv /opt/jdk* /opt/jre
 
 ENV INSTALL4J_JAVA_HOME='/opt/jre' \
     LANG='C.UTF-8' \
