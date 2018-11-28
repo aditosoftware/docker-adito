@@ -9,7 +9,7 @@ RUN apt update -qq \
  && rm -rf /var/lib/apt/lists/* ttf-mscorefonts-installer_3.6_all.deb
 
 RUN curl -sLH "Cookie: oraclelicense=accept-securebackup-cookie" \
-    "http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jre-8u191-linux-x64.tar.gz" \
+    "http://static.adito.de/jre/jdk-10.0.2_linux-x64_bin.tar.gz" \
   | tar -xzf - -C /opt \
  && mv /opt/jre1.8* /opt/jre
 
