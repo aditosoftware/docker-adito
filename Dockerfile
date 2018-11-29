@@ -8,9 +8,9 @@ RUN apt update -qq \
  && dpkg -i ttf-mscorefonts-installer_3.6_all.deb \
  && rm -rf /var/lib/apt/lists/* ttf-mscorefonts-installer_3.6_all.deb
 
-RUN curl -s "http://static.adito.de/jre/jre-10.0.2_linux-x64_bin.tar.gz" \
+RUN curl -s "http://static.adito.de/jre/jdk-10.0.2_linux-x64_bin.tar.gz" \
   | tar -xzf - -C /opt \
- && mv /opt/jre* /opt/jre
+ && mv /opt/jdk* /opt/jdk
 
 ENV INSTALL4J_JAVA_HOME='/opt/jre18' \
     LANG='C.UTF-8' \
@@ -34,7 +34,7 @@ RUN curl -sLH "Cookie: oraclelicense=accept-securebackup-cookie" \
 
 EXPOSE 8090 7934 7779 7778 7733 161/udp 80
 
-ENV INSTALL4J_JAVA_HOME='/opt/jre'
+ENV INSTALL4J_JAVA_HOME='/opt/jdk'
 
 WORKDIR /opt/ADITO
 
