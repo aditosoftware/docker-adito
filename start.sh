@@ -23,5 +23,15 @@ sed -i s/{SRVCONF_SERVER_ID}/"${SRVCONF_SERVER_ID}"/g /opt/ADITO/config/serverco
 
 sed -i s/{JVM_XMX}/"${JVM_XMX:-1024M}"/g /opt/ADITO/bin/ADITOserver.vmoptions
 
-
-/opt/ADITO/bin/ADITOserver
+#workaround until install4j update
+/opt/jre/bin/java \
+-cp "/opt/ADITO/lib/server/*:/opt/ADITO/lib/server/ext/*:/opt/ADITO/lib/server/plugin/*" \
+-Djava.awt.headless=true \
+-Xmx${JVM_XMX:-2G} \
+-Dadito.home=/opt/ADITO \
+-Dadito.data=/opt/ADITOData \
+-Dadito.serverconfig=/opt/ADITO/config/serverconfig.xml \
+-Dadito.server.port=7779 \
+-Dadito.server.managerport=7778 \
+-XX:+UseG1GC \
+de.adito.aditoweb.server.Server
