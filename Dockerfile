@@ -8,7 +8,7 @@ RUN apt update -qq \
  && dpkg -i ttf-mscorefonts-installer_3.6_all.deb \
  && rm -rf /var/lib/apt/lists/* ttf-mscorefonts-installer_3.6_all.deb
 
-RUN curl -s "http://static.adito.de/jre/jdk-10.0.2_linux-x64_bin.tar.gz" \
+RUN curl -s "http://static.adito.de/jre/jre-10.0.2_linux-x64_bin.tar.gz" \
   | tar -xzf - -C /opt \
  && mv /opt/jdk* /opt/jre
 
