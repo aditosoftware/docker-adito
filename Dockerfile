@@ -34,7 +34,7 @@ RUN curl -sLH "Cookie: oraclelicense=accept-securebackup-cookie" \
 
 EXPOSE 8090 7934 7779 7778 7733 161/udp 80
 
-ENV INSTALL4J_JAVA_HOME='/opt/jdk'
+ENV INSTALL4J_JAVA_HOME='/opt/jre'
 
 WORKDIR /opt/ADITO
 

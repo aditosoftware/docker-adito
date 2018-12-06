@@ -24,7 +24,7 @@ sed -i s/{SRVCONF_SERVER_ID}/"${SRVCONF_SERVER_ID}"/g /opt/ADITO/config/serverco
 sed -i s/{JVM_XMX}/"${JVM_XMX:-1024M}"/g /opt/ADITO/bin/ADITOserver.vmoptions
 
 #workaround until install4j update
-/opt/jdk/bin/java \
+/opt/jre/bin/java \
 -cp "/opt/ADITO/lib/server/*:/opt/ADITO/lib/server/ext/*:/opt/ADITO/lib/server/plugin/*" \
 -Djava.awt.headless=true \
 -Xmx${JVM_XMX:-2G} \
