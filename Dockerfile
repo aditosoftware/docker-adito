@@ -23,7 +23,7 @@ RUN curl -sLH "Cookie: oraclelicense=accept-securebackup-cookie" \
     "http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jre-8u191-linux-x64.tar.gz" \
   | tar -xzf - -C /tmp \
  && mv /tmp/jre1.8* /opt/jre18 \
- && curl -so /tmp/adito.tar "http://static.adito.de/common/install/ADITO5/ADITO_5.1.181206_unix.tar" \
+ && curl -so /tmp/adito.tar "http://static.adito.de/common/install/ADITO5/ADITO_5.1.181222_unix.tar" \
  && tar -xf /tmp/adito.tar -C /tmp/ \
  && chmod +x /tmp/install/ADITO_unix.sh \
  && /tmp/install/ADITO_unix.sh -q -varfile /a/config/response.varfile \
