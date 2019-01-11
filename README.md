@@ -59,6 +59,6 @@ System ID configured in the ADITO designer.
 
 
 
-## Run ADITO
+## Run ADITO 
 
 We provide a [docker-compose.yml](https://raw.githubusercontent.com/aditosoftware/docker-adito/master/docker-compose.yml)
