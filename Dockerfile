@@ -20,7 +20,7 @@ ENV INSTALL4J_JAVA_HOME='/opt/jre18' \
 ADD ./config /a/config
 
 RUN curl -sLH "Cookie: oraclelicense=accept-securebackup-cookie" \
-    "https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jre-8u201-linux-x64.tar.gz" \
+    "https://static.adito.de/common/install/jre/8u191-linux-x64.tar.gz" \
   | tar -xzf - -C /tmp \
  && mv /tmp/jre1.8* /opt/jre18 \
  && curl -so /tmp/adito.tar "http://static.adito.de/common/install/ADITO5/ADITO_5.1.190119_unix.tar" \
