@@ -12,7 +12,7 @@ RUN curl -s "http://static.adito.de/jre/jre-10.0.2_linux-x64_bin.tar.gz" \
   | tar -xzf - -C /opt \
  && mv /opt/jre* /opt/jre
 
-ENV INSTALL4J_JAVA_HOME='/opt/jre18' \
+ENV INSTALL4J_JAVA_HOME='/opt/jre' \
     LANG='C.UTF-8' \
     LC_ALL='C.UTF-8' \
     LANGUAGE='C.UTF-8'
