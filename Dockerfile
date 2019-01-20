@@ -19,17 +19,11 @@ ENV INSTALL4J_JAVA_HOME='/opt/jre' \
 
 ADD ./config /a/config
 
-RUN curl -sLH "Cookie: oraclelicense=accept-securebackup-cookie" \
-    "https://static.adito.de/common/install/jre/8u191-linux-x64.tar.gz" \
-  | tar -xzf - -C /tmp \
- && mv /tmp/jre1.8* /opt/jre18 \
- && curl -so /tmp/adito.tar "http://static.adito.de/common/install/ADITO5/ADITO_5.1.190119_unix.tar" \
+RUN curl -so /tmp/adito.tar "http://static.adito.de/common/install/ADITO5/ADITO_5.1.190119_unix.tar" \
  && tar -xf /tmp/adito.tar -C /tmp/ \
  && chmod +x /tmp/install/ADITO_unix.sh \
  && /tmp/install/ADITO_unix.sh -q -varfile /a/config/response.varfile \
  && rm -rf /tmp/* /opt/ADITO/bin/ADITO*server.vmoptions \
- && mv /opt/ADITO/bin/ADITO*server /opt/ADITO/bin/ADITOserver \
- && rm -rf /opt/jre18 /opt/ADITO/jre \
  && ln -sf /opt/jre /opt/ADITO/jre
 
 EXPOSE 8090 7934 7779 7778 7733 161/udp 80
