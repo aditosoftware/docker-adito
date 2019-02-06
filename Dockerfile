@@ -8,7 +8,7 @@ RUN apt update -qq \
  && dpkg -i ttf-mscorefonts-installer_3.6_all.deb \
  && rm -rf /var/lib/apt/lists/* ttf-mscorefonts-installer_3.6_all.deb
 
-RUN curl -s "http://static.adito.de/jre/jre-10.0.2_linux-x64_bin.tar.gz" \
+RUN curl -s "https://static.adito.de/jre/jre-10.0.2_linux-x64_bin.tar.gz" \
   | tar -xzf - -C /opt \
  && mv /opt/jre* /opt/jre
 
@@ -19,7 +19,7 @@ ENV INSTALL4J_JAVA_HOME='/opt/jre' \
 
 ADD ./config /a/config
 
-RUN curl -so /tmp/adito.tar "http://static.adito.de/common/install/ADITO5/ADITO_5.1.190106_unix.tar" \
+RUN curl -so /tmp/adito.tar "https://static.adito.de/common/install/ADITO5/ADITO_5.1.190106_unix.tar" \
  && tar -xf /tmp/adito.tar -C /tmp/ \
  && chmod +x /tmp/install/ADITO_unix.sh \
  && /tmp/install/ADITO_unix.sh -q -varfile /a/config/response.varfile \
