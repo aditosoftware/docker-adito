@@ -1,30 +1,36 @@
-services:
-  adito:
-    environment:
-      JVM_XMX: 4G
-      SRVCONF_DATABASE: adito
-      SRVCONF_DATABASETYP: '12'
-      SRVCONF_HOST: mariadb
-      SRVCONF_PASSWORD: chamgeme
-      SRVCONF_PORT: '3306'
-      SRVCONF_SERVER_ID: ''
-      SRVCONF_USER: adito
-    image: adito/adito
-    ports:
-    - 7779:7779/tcp
-    - 8080:80/tcp
-    volumes:
-    - /volume/adito/serverlicense.jar:/opt/ADITO/license/serverlicense.jar:ro
-#    - /volume/adito/serverconfig.xml:/opt/ADITO/config/serverconfig.xml:ro
-    - /volume/adito/ADITOData:/opt/ADITOData:rw
-  mariadb:
-    command: mysqld --lower_case_table_names=1
-    environment:
-      MYSQL_DATABASE: adito
-      MYSQL_PASSWORD: changeme
-      MYSQL_ROOT_PASSWORD: changeme
-      MYSQL_USER: adito
-    image: mariadb:10.1
-    volumes:
-    - /volume/mariadb:/var/lib/mysql:rw
-version: '2.1'
+adito:
+  image: adito/adito
+  environment:
+#    - JVM_XMX=1024M #Maximum memory allocation pool for Java (M = Megabyte; G = Gigabyte)
+
+#    - WEBSTART_URL= #Only necessary if you use https and/or another port than 80 (example: https://adito4server:443)
+    - WEBSTART_HOST= #IP or DNS for the ADITO4-Server
+#    - ADITO_PORT=7779 #Exposed port for ADITO4
+#    - ADITO_CONNECTION_TYPE=NETTY
+
+    - SRVCONF_DATABASETYP=12 #Database type (example: 12 = MariaDB; 7 = Derby)
+    - SRVCONF_DATABASE=adito #Name of the database
+    - SRVCONF_HOST=mariadb #Database host
+    - SRVCONF_PORT=3306 #Database port
+    - SRVCONF_USER=adito #Database user
+    - SRVCONF_PASSWORD= #Password for the database user
+    - SRVCONF_SERVER_ID= #Server ID (example: default, production)
+  links:
+    - mariadb
+  ports:
+    - "7779:7779" # adito
+    - "8080:80" # webstart
+  volumes:
+    - /volume/adito/serverlicense.jar:/opt/ADITO4/license/serverlicense.jar:ro
+    - /volume/adito/aditodata:/opt/ADITO4Data
+
+mariadb:
+  image: mariadb:10.1
+  command: mysqld --lower_case_table_names=1
+  environment:
+    - MYSQL_ROOT_PASSWORD=
+    - MYSQL_DATABASE=adito
+    - MYSQL_USER=adito
+    - MYSQL_PASSWORD=
+  volumes:
+    - /volume/mariadb:/var/lib/mysql
