@@ -19,7 +19,7 @@ ENV INSTALL4J_JAVA_HOME='/opt/jre' \
 
 ADD ./config /a/config
 
-RUN curl -so /tmp/adito.tar "https://static.adito.de/common/install/ADITO/ADITO_2019.2.0-RC4_unix.tar" \
+RUN curl -so /tmp/adito.tar "https://static.adito.de/common/install/ADITO/ADITO_2019.2.0-RC5_unix.tar" \
  && tar -xf /tmp/adito.tar -C /tmp/ \
  && chmod +x /tmp/install/ADITO_unix.sh \
  && /tmp/install/ADITO_unix.sh -q -varfile /a/config/response.varfile \
