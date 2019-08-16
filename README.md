@@ -90,7 +90,12 @@ Password of the user for the System Database.
 
 System ID configured in the ADITO designer.
 
+### `JAVA_PARAM=`
 
+Java Parameter for Adito Server
+```
+-Dadito.settings._____CONFIGURATION_default.aliasConfigSub.loggingConsoleEnabled=true
+```
 
 ## Run ADITO
 

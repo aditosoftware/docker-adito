@@ -22,5 +22,6 @@ sed -i s/{SRVCONF_SERVER_ID}/"${SRVCONF_SERVER_ID}"/g /opt/ADITO/config/serverco
 
 
 sed -i s/{JVM_XMX}/"${JVM_XMX:-1024M}"/g /opt/ADITO/bin/ADITOserver.vmoptions
+echo $JAVA_PARAM >> /opt/ADITO/bin/ADITOserver.vmoptions
 
 /opt/ADITO/bin/ADITOserver
