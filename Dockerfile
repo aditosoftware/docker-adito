@@ -17,7 +17,7 @@ RUN curl -so /tmp/adito.tar "https://static.adito.de/common/install/ADITO/ADITO_
  && chmod +x /tmp/install/ADITO_unix.sh \
  && /tmp/install/ADITO_unix.sh -q -varfile /a/config/response.varfile \
  && rm -rf /tmp/* /opt/ADITO/bin/ADITO*server.vmoptions \
- && ln -sf /opt/jre /opt/ADITO/jre
+ && ln -sf /opt/java/openjdk /opt/ADITO/jre
 
 EXPOSE 8090 7934 7779 7778 7733 161/udp 80
 
