@@ -12,10 +12,11 @@ ENV INSTALL4J_JAVA_HOME=$JAVA_HOME
 
 ADD ./config /a/config
 
-RUN curl -so /tmp/adito.tar "https://static.adito.de/common/install/ADITO/2020.0.0-Hotfix2_unix.tar" \
+RUN curl -so /tmp/adito.tar "https://static.adito.de/common/install/ADITO/ADITO_2020.0.1-TEST1_unix.tar" \
  && tar -xf /tmp/adito.tar -C /tmp/ \
  && chmod +x /tmp/install/ADITO_unix.sh \
  && /tmp/install/ADITO_unix.sh -q -varfile /a/config/response.varfile \
+ && rm -rf /opt/ADITO/webroot/webstart/lib/client \
  && mv -f /opt/ADITO/lib/client /opt/ADITO/webroot/webstart/lib \
  && rm -rf /tmp/* /opt/ADITO/bin/ADITO*server.vmoptions \
  && ln -sf /opt/java/openjdk /opt/ADITO/jre
