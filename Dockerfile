@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk13:x86_64-ubuntu-jdk-13.0.1_9-slim
+FROM adoptopenjdk/openjdk13:x86_64-ubuntu-jdk-13.0.2_8-slim
 
 RUN apt update -qq \
  && apt install -qqy curl vim fontconfig wget cabextract xfonts-utils\
