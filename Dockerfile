@@ -12,7 +12,7 @@ ENV INSTALL4J_JAVA_HOME=$JAVA_HOME
 
 ADD ./config /a/config
 
-RUN curl -so /tmp/adito.tar "https://static.adito.de/common/install/ADITO/ADITO_2021.1.0-RC17_unix.tar" \
+RUN curl -so /tmp/adito.tar "https://static.adito.de/common/install/ADITO/ADITO_2021.1.0-RC18_unix.tar" \
  && tar -xf /tmp/adito.tar -C /tmp/ \
  && chmod +x /tmp/install/ADITO_unix.sh \
  && /tmp/install/ADITO_unix.sh -q -varfile /a/config/response.varfile \
