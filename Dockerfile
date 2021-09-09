@@ -27,7 +27,7 @@ WORKDIR /opt/ADITO
 
 ADD ./start.sh /a/start.sh
 
-RUN groupadd -g 999 adito && \
+RUN groupadd -g 999 adito \
  && useradd -r -u 999 -g adito adito
 
 RUN chmod u+x /a/start.sh \
