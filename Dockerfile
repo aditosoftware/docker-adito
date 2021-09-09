@@ -26,5 +26,17 @@ EXPOSE 8080 8443
 WORKDIR /opt/ADITO
 
 ADD ./start.sh /a/start.sh
+
+RUN groupadd -g 999 adito && \
+ && useradd -r -u 999 -g adito adito
+
+RUN chmod u+x /a/start.sh \
+ && chown 999:999 /a/start.sh \
+ && chown 999:999 /opt/ADITO/ -R \
+ && mkdir -p /opt/ADITOData \
+ && chown 999:999 /opt/ADITOData -R
+
+USER adito
+
 RUN chmod u+x /a/start.sh
 CMD /a/start.sh
